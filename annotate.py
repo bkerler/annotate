@@ -111,7 +111,7 @@ def func_annotate_reg(module_name, function_name, instruction, function):
                 else: 
                     reg=params[i].src
                     try:
-                        address=mlil[mlil.get_ssa_var_definition(reg)].address
+                        address=mlil.get_ssa_var_definition(reg).address
                         offsets.append(address)
                     except:
                         pass
@@ -134,7 +134,7 @@ def func_annotate_reg(module_name, function_name, instruction, function):
                     else: 
                         reg=params[i].src
                         try:
-                            address=mlil[mlil.get_ssa_var_definition(reg)].address
+                            address=mlil.get_ssa_var_definition(reg).address
                             offsets.append(address)
                         except:
                             pass
