@@ -69,6 +69,10 @@ def do_comment(function_arg,stack_args,function):
             stack_instruction = stack_args.next()
         else:
             stack_instruction = next(stack_args)
+
+        if stack_instruction is None:
+            return False
+
         function.set_comment(stack_instruction.address, function_arg)
         return True
     except StopIteration:
