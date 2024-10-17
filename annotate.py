@@ -51,14 +51,14 @@ def load_functions(platform):
 def get_function_name(callee):
   global os_sys
   if os_sys=="windows":
-      module_name = re.match('(\S+)\!', callee.name)
-      function_name = re.match('\S+\!(\w+)(@IAT)*?', callee.name)
+      module_name = re.match(r'(\S+)\!', callee.name)
+      function_name = re.match(r'\S+\!(\w+)(@IAT)*?', callee.name)
   elif os_sys=="linux":
       if "__imp_" in callee.name:
-         function_name=re.match('__imp_(\S+)', callee.name)
+         function_name=re.match(r'__imp_(\S+)', callee.name)
       else:
-         function_name=re.match('(\S+)', callee.name)
-      module_name=re.match('(\S+)', callee.name)
+         function_name=re.match(r'(\S+)', callee.name)
+      module_name=re.match(r'(\S+)', callee.name)
   return (module_name, function_name)
 
 def do_comment(function_arg,stack_args,function):
